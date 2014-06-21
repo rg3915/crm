@@ -19,6 +19,13 @@ class Criar(CreateView):
     success_url = reverse_lazy('lista')
 
 
+class Listar(ListView):
+    template_name = 'lista2.html'
+    model = Inscricao
+    context_object = 'inscricao_list'
+    paginate_by = 2
+
+
 def lista(request):
     # pagination
     inscricoes_list = Inscricao.objects.all()

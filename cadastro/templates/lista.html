@@ -3,26 +3,49 @@
 {% block content %}
 	<h1>Lista de Clientes</h1>
 
-	<table>
-		<tr>
-			<th>Nome</th>
-			<th>CPF</th>
-			<th>Idade</th>
-			<th>Email</th>
-			<th>Telefone</th>
-			<th>Criado em</th>
-		</tr>
-		{% for nome in object_list %}
-			<tr>
-				<td>{{ nome.nome }}</td>
-				<td>{{ nome.cpf }}</td>
-				<td>{{ nome.idade }}</td>
-				<td>{{ nome.email }}</td>
-				<td>{{ nome.telefone }}</td>
-				<td>{{ nome.criado_em|date:"d/m/Y" }}</td>
-			</tr>
-		{% empty %}
-			<li>Sem itens na lista.</li>
-		{% endfor %}
-	</table>
+	<div>
+		<div>
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>CPF</th>
+					<th>Idade</th>
+					<th>Email</th>
+					<th>Telefone</th>
+					<th>Criado em</th>
+				</tr>
+				{% for inscricao in inscricao.object_list %}
+					<tr>
+						<td>{{ inscricao.nome }}</td>
+						<td>{{ inscricao.cpf }}</td>
+						<td>{{ inscricao.idade }}</td>
+						<td>{{ inscricao.email }}</td>
+						<td>{{ inscricao.telefone }}</td>
+						<td>{{ inscricao.criado_em|date:"d/m/Y" }}</td>
+					</tr>
+				{% empty %}
+					<p>Sem itens na lista.</p>
+				{% endfor %}
+			</table>
+		</div>
+
+		<div class="pagination">
+			<ul>
+			{% if inscricao.has_previous %}
+				<li><a href="?page={{ inscricao.previous_page_number }}">Previous</a></li>
+			{% endif %}
+			{% for pg in inscricao.paginator.page_range %}
+				{% if inscricao.number == pg %}
+					<li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+				{% else %}
+					<li><a href="?page={{ pg }}">{{ pg }}</a></li>
+				{% endif %}
+			{% endfor %}
+			{% if inscricao.has_next %}
+				<li><a href="?page={{ inscricao.next_page_number }}">Next</a></li>
+			{% endif %}
+			</ul>
+		</div>
+	</div>
+
 {% endblock content %}

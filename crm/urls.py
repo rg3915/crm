@@ -6,8 +6,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('cadastro.views',
-    url(r'^$', 'home', name='home'),
-    url(r'^cadastro/$', Criar.as_view(), name='cadastro'),
-    url(r'^lista/$', Lista.as_view(), name='lista'),
-    url(r'^admin/', include(admin.site.urls)),
-)
+                       url(r'^$', 'home', name='home'),
+                       url(r'^cadastro/$', Criar.as_view(), name='cadastro'),
+                       url(r'^lista/$', 'lista', name='lista'),
+                       url(r'^admin/', include(admin.site.urls)),
+                       )

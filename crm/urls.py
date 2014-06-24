@@ -8,8 +8,6 @@ admin.autodiscover()
 urlpatterns = patterns('cadastro.views',
                        url(r'^$', 'home', name='home'),
                        url(r'^cadastro/$', Criar.as_view(), name='cadastro'),
-                       url(r'^lista2/$', Listar.as_view(), name='lista2'),
-                       # url(r'^lista2/(?P<page>[0-9]+)/$', Listar.as_view(), name='lista2'),
-                       url(r'^lista/$', 'lista', name='lista'),
+                       url(r'^lista/$', Listar.as_view(), name='lista'),
                        url(r'^admin/', include(admin.site.urls)),
                        )

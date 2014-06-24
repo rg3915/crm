@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
 	{% block title %}
 		<title>Título</title>
 	{% endblock title %}
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/base.css" rel="stylesheet">
+
 </head>
 <body>
-	<div>
-		<ul>
-			<li><a href="{% url 'home' %}">Início</a></li>
-			<li><a href="{% url 'cadastro' %}">Cadastro</a></li>
-			<li><a href="{% url 'lista' %}">Lista</a></li>
-			<li><a href="{% url 'lista2' %}">Lista 2</a></li>
-		</ul>
-	</div>
+
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}">CRM</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+					<li><a href="{% url 'home' %}">Início</a></li>
+					<li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+					<li><a href="{% url 'lista' %}">Lista</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
 	{% block content %}
 		
 	{% endblock content %}
+
+	    <!-- JavaScript -->
+    <script src="../static/js/jquery-1.10.2.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+
 </body>
 </html>

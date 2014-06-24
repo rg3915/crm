@@ -20,10 +20,10 @@ class Criar(CreateView):
 
 
 class Listar(ListView):
-    template_name = 'lista2.html'
+    template_name = 'lista.html'
     model = Inscricao
     context_object = 'inscricao_list'
-    paginate_by = 2
+    paginate_by = 5
 
 
 def lista(request):

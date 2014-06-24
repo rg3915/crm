@@ -13,3 +13,6 @@ Scripts
 .DS_Store
 .env
 crm/staticfiles
+
+.db
+*.sqlite3

@@ -4,7 +4,7 @@ from django.db import models
 
 class ClientesManager(models.Manager):
 
-    def get_query_set(self):
-        qs = super(ClientesManager, self).get_query_set()
+    def get_queryset(self):
+        qs = super(ClientesManager, self).get_queryset()
         qs = qs.objects.with_counts()
         return qs

@@ -16,3 +16,4 @@ crm/staticfiles
 
 .db
 *.sqlite3
+.venv
